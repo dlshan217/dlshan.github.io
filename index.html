@@ -4,32 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohammad Dilshan</title>
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- BACKGROUND GRAIN -->
+  <div class="grain"></div>
+
   <!-- HERO -->
-  <header class="hero">
-    <div class="hero-text fade-up">
-      <h1>Mohammad Dilshan</h1>
-      <p>
-        Full-stack developer who ships real apps.<br />
-        Backend-leaning. Calm. Curious. Persistent.
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="reveal">Mohammad Dilshan</h1>
+      <p class="reveal delay-1">
+        Full-stack developer.<br />
+        I build real systems, ship live apps,<br />
+        and debug until it works.
       </p>
 
-      <div class="hero-actions">
+      <div class="hero-actions reveal delay-2">
         <a href="#featured" class="btn">View Live Project</a>
-        <a href="mailto:mohammaddilshan217@gmail.com" class="btn secondary">
+        <a href="mailto:mohammaddilshan217@gmail.com" class="btn ghost">
           Contact
         </a>
       </div>
     </div>
-  </header>
 
-  <!-- FEATURED PROJECT -->
-  <section id="featured" class="section fade-up">
-    <h2>Featured Project</h2>
+    <div class="hero-right">
+      <div class="image-wrapper">
+        <img src="dlshan.jpg" alt="Mohammad Dilshan" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section id="featured" class="section reveal">
+    <h2>Featured</h2>
 
     <div class="featured-card">
       <h3>
@@ -38,88 +47,54 @@
 
       <p>
         A real-time anonymous stranger chat application.
-        Users are matched instantly, can skip freely,
-        and reveal identity only with mutual consent.
+        Built to explore matchmaking, real-time systems,
+        and consent-based identity reveal.
       </p>
 
       <p class="tech">
-        React · Firebase · Realtime Database · Anonymous Auth
+        React · Firebase · Realtime DB · Anonymous Auth
       </p>
 
       <div class="actions">
         <a href="https://schaat.vercel.app/" target="_blank" class="btn">
           Open Live App
         </a>
-        <a href="https://github.com/dlshan217" target="_blank" class="btn secondary">
-          View GitHub
+        <a href="https://github.com/dlshan217" target="_blank" class="btn ghost">
+          GitHub
         </a>
       </div>
     </div>
   </section>
 
-  <!-- OTHER PROJECTS -->
-  <section class="section fade-up">
-    <h2>Other Projects</h2>
+  <!-- PROJECTS -->
+  <section class="section reveal">
+    <h2>Other Work</h2>
 
     <div class="grid">
-      <div class="card">
-        <h3>Tour Package Management</h3>
-        <p>Django-based booking system with admin control and authentication.</p>
-      </div>
-
-      <div class="card">
-        <h3>Time Capsule</h3>
-        <p>Personal memory-saving app with media uploads.</p>
-      </div>
-
-      <div class="card">
-        <h3>Weather App</h3>
-        <p>React weather app with charts and condition-based quotes.</p>
-      </div>
-
-      <div class="card">
-        <h3>digi.shadow</h3>
-        <p>Observes writing patterns over time without simulating intelligence.</p>
-      </div>
+      <div class="card">Tour Package Management System</div>
+      <div class="card">Time Capsule</div>
+      <div class="card">Weather App</div>
+      <div class="card">digi.shadow</div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section fade-up">
-    <h2>About Me</h2>
-    <p>
-      BCA graduate focused on backend development and system design.
-      I enjoy building real products, debugging hard problems,
-      and understanding how systems behave under real usage.
-      Not into buzzwords — into shipping.
-    </p>
-  </section>
-
   <!-- SKILLS -->
-  <section class="section fade-up">
+  <section class="section reveal">
     <h2>Skills</h2>
     <div class="skills">
       <span>Python</span>
       <span>Django</span>
       <span>React</span>
       <span>Firebase</span>
-      <span>REST APIs</span>
       <span>SQL</span>
-      <span>Git & GitHub</span>
+      <span>REST APIs</span>
+      <span>Git</span>
     </div>
   </section>
 
-  <!-- LINKS -->
-  <section class="section fade-up">
-    <h2>Find Me</h2>
-    <p>
-      <a href="https://github.com/dlshan217" target="_blank">GitHub</a> ·
-      <a href="https://in.linkedin.com/in/dlshan217" target="_blank">LinkedIn</a>
-    </p>
-  </section>
-
+  <!-- FOOTER -->
   <footer>
-    <p>© Mohammad Dilshan</p>
+    <p>@ Mohammad Dilshan</p>
   </footer>
 
   <script src="script.js"></script>
