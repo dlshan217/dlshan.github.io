@@ -1,106 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohammad Dilshan</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dilshan — System UI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#0a0a0a;color:#fff;overflow:hidden}
+
+.container{
+  position:absolute;
+  left:80px;
+  top:50%;
+  transform:translateY(-50%);
+  width:560px;
+  height:70vh;
+  overflow-y:auto;
+  padding-right:10px;
+  scrollbar-width:none; /* firefox */
+}
+
+.container::-webkit-scrollbar{
+  display:none; /* hide scrollbar */
+}
+
+/* custom scrollbar */
+.container::-webkit-scrollbar{
+  width:6px;
+}
+.container::-webkit-scrollbar-thumb{
+  background:#00e0ff;
+  border-radius:10px;
+}
+.container::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+.section{
+  position:absolute;
+  opacity:0;
+  transform:translateY(50px) scale(0.95);
+  transition:0.6s cubic-bezier(.2,.8,.2,1);
+}
+
+.section.active{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+h1{
+  font-size:64px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.sub{
+  font-size:14px;
+  opacity:0.5;
+  margin-bottom:20px;
+  letter-spacing:1px;
+}
+
+p{
+  opacity:0.75;
+  line-height:1.7;
+  margin-bottom:15px;
+}
+
+.profile{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #fff;
+  margin-bottom:20px;
+}
+
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border:1px solid #fff;
+  margin-right:10px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  transition:0.2s;
+}
+
+.btn:hover{
+  background:#fff;
+  color:#000;
+}
+
+.card{
+  border:1px solid rgba(255,255,255,0.2);
+  padding:16px;
+  margin-top:15px;
+  transition:0.3s;
+}
+
+.card:hover{
+  border-color:#00e0ff;
+  transform:translateY(-4px);
+}
+
+.tag{
+  font-size:12px;
+  opacity:0.5;
+  margin-top:8px;
+}
+
+/* WHEEL */
+#wheel{
+  position:fixed;
+  right:120px;
+  bottom:120px;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,0.2);
+  transition:transform 0.25s cubic-bezier(.2,.8,.2,1);
+}
+
+.center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:2px solid white;
+}
+
+.segment{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform-origin:center 130px;
+}
+
+.segment-line{
+  width:4px;
+  height:20px;
+  background:rgba(255,255,255,0.3);
+  transition:0.2s;
+}
+
+.segment.active .segment-line{
+  background:#00e0ff;
+  height:32px;
+}
+
+.segment-label{
+  position:absolute;
+  top:30px;
+  font-size:10px;
+  transform:rotate(180deg);
+  opacity:0.6;
+}
+
+.target-zone{
+  position:fixed;
+  right:340px;
+  bottom:340px;
+  width:120px;
+  height:120px;
+  border:1px dashed rgba(0,224,255,0.3);
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- BACKGROUND GRAIN -->
-  <div class="grain"></div>
+<div class="container">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-    <div class="hero-left">
-      <h1 class="reveal">Mohammad Dilshan</h1>
+  <!-- ABOUT -->
+  <div class="section active" id="about">
+    <img src="dlshan.jpg" class="profile" />
+    <h1>MOHAMMAD<br>DILSHAN</h1>
+    <div class="sub">FULL STACK • SYSTEM THINKING</div>
 
-      <p class="hero-desc reveal delay-1">
-        Full-stack developer who actually ships.<br>
-        I build real systems, break them,<br>
-        debug patiently, and make them work.
-      </p>
+    <p>I don’t just "learn" tech. I build systems that break, debug them, and rebuild them properly. I focus on real-world execution, not tutorial-level nonsense.</p>
 
-      <div class="hero-actions reveal delay-2">
-        <a href="#featured" class="btn">View Project</a>
-        <a href="mailto:mohammaddilshan217@gmail.com" class="btn ghost">Contact</a>
-      </div>
-    </div></div> <br>
-<div>
-    <div class="hero-right">
-      <div class="image-wrapper">
-        <img src="dlshan.jpg" alt="Mohammad Dilshan" />
-      </div>
-    </div></div>
-  </section>
+    <p>I care about how things behave under pressure — performance, state, real-time flow — not just UI.</p>
 
-  <!-- FEATURED -->
-  <section id="featured" class="section reveal">
-    <h2 class="section-title">Featured</h2>
-<div>
-    <div class="featured-card">
-      <h3>
-        schaat <span class="live-dot">●</span>
-      </h3>
-
-      <p class="project-desc">
-        A real-time anonymous stranger chat application.<br>
-        Built to explore matchmaking, real-time systems,<br>
-        and consent-based identity reveal.
-      </p>
-
-      <p class="tech">
-        React · Firebase · Realtime DB · Anonymous Auth
-      </p>
-
-      <div class="actions">
-        <a href="https://schaat.vercel.app/" target="_blank" class="btn">Open</a>
-        <a href="https://github.com/dlshan217/schat" target="_blank" class="btn ghost">GitHub</a>
-      </div>
-    </div>
+    <a href="https://github.com/dlshan217" target="_blank" class="btn">GitHub</a>
+    <a href="mailto:mohammaddilshan217@gmail.com" class="btn">Contact</a>
   </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section reveal">
-    <h2 class="section-title">Other Work</h2>
-    <div>
-
-    <div class="grid">
-      <div class="card">Tour Package Management System</div>
-      <div class="card">Time Capsule</div>
-      <div class="card">Weather App</div>
-      <div class="card">digi.shadow</div>
-    </div></div>
-  </section>
 
   <!-- SKILLS -->
-  <section class="section reveal">
-    <h2 class="section-title">Skills</h2>
+  <div class="section" id="skills">
+    <h1>SKILLS</h1>
+    <div class="sub">WHAT I ACTUALLY USE</div>
 
-    <div class="skills">
-      <span>Python</span>
-      <span>Django</span>
-      <span>React</span>
-      <span>Firebase</span>
-      <span>SQL</span>
-      <span>REST APIs</span>
-      <span>Git</span>
+    <div class="card">
+      <strong>Backend</strong>
+      <p>Django, REST APIs, authentication systems, database design.</p>
+      <div class="tag">Python • SQL</div>
     </div>
 
-    <div class="social-links">
-      <a href="https://github.com/dlshan217" target="_blank" class="btn ghost">GitHub</a>
-      <a href="https://www.linkedin.com/in/dlshan217" target="_blank" class="btn ghost">LinkedIn</a>
+    <div class="card">
+      <strong>Frontend</strong>
+      <p>React, state handling, UI systems, interaction design.</p>
+      <div class="tag">React • JS</div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>@ Mohammad Dilshan</p>
-  </footer>
+    <div class="card">
+      <strong>Realtime</strong>
+      <p>Firebase, live systems, syncing, user interaction flows.</p>
+      <div class="tag">Realtime DB</div>
+    </div>
+  </div>
 
-  <script src="script.js"></script>
+  <!-- PROJECTS -->
+  <div class="section" id="projects">
+    <h1>PROJECTS</h1>
+    <div class="sub">REAL BUILDS</div>
+
+    <div class="card">
+      <strong>schaat (LIVE)</strong>
+      <p>Anonymous real-time chat with matching system and identity reveal logic.</p>
+      <a href="https://schaat.vercel.app/" target="_blank" class="btn">Open</a>
+      <a href="https://github.com/dlshan217/schat" target="_blank" class="btn">Code</a>
+    </div>
+
+    <div class="card">
+      <strong>Other Builds</strong>
+      <p>Weather App · Time Capsule · Tour System</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <h1>CONNECT</h1>
+    <div class="sub">REACH OUT</div>
+
+    <p>Email: mohammaddilshan217@gmail.com</p>
+
+    <a href="https://github.com/dlshan217" target="_blank" class="btn">GitHub</a>
+    <a href="https://www.linkedin.com/in/dlshan217" target="_blank" class="btn">LinkedIn</a>
+  </div>
+
+</div>
+
+<div class="target-zone"></div>
+
+<div id="wheel"><div class="center"></div></div>
+
+<script>
+
+const items = [
+  { id: "about", label: "ABOUT" },
+  { id: "skills", label: "SKILLS" },
+  { id: "projects", label: "PROJECTS" },
+  { id: "contact", label: "CONTACT" }
+];
+
+const angles = [0,90,180,270];
+const wheel = document.getElementById("wheel");
+
+let currentIndex = 0;
+let isAnimating = false;
+
+items.forEach((item,i)=>{
+  const seg=document.createElement("div");
+  seg.className="segment";
+  seg.style.transform=`rotate(${angles[i]}deg)`;
+
+  const line=document.createElement("div");
+  line.className="segment-line";
+
+  const text=document.createElement("div");
+  text.className="segment-label";
+  text.innerText=item.label;
+
+  seg.appendChild(line);
+  seg.appendChild(text);
+  wheel.appendChild(seg);
+});
+
+const segments=document.querySelectorAll('.segment');
+
+function updateUI(index){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(items[index].id).classList.add('active');
+
+  segments.forEach(s=>s.classList.remove('active'));
+  void wheel.offsetWidth;
+  segments[index].classList.add('active');
+}
+
+function rotateTo(index){
+  if(isAnimating) return;
+  isAnimating=true;
+  currentIndex=index;
+
+  const rotation=315-angles[index];
+  wheel.style.transform=`rotate(${rotation}deg)`;
+
+  updateUI(index);
+
+  setTimeout(()=>{isAnimating=false},250);
+}
+
+// PREVENT SCROLL CONFLICT INSIDE CONTENT
+document.querySelector('.container').addEventListener('wheel', e=>{
+  e.stopPropagation();
+});
+
+// ===== DESKTOP DRAG SPIN =====
+let isDragging = false;
+let lastY = 0;
+
+wheel.addEventListener("mousedown", (e)=>{
+  isDragging = true;
+  lastY = e.clientY;
+});
+
+window.addEventListener("mousemove", (e)=>{
+  if(!isDragging || isAnimating) return;
+
+  const delta = e.clientY - lastY;
+
+  if(Math.abs(delta) > 20){
+    if(delta > 0){
+      rotateTo((currentIndex - 1 + items.length) % items.length);
+    } else {
+      rotateTo((currentIndex + 1) % items.length);
+    }
+    lastY = e.clientY;
+  }
+});
+
+window.addEventListener("mouseup", ()=>{
+  isDragging = false;
+});
+
+// ===== SCROLL (DESKTOP ONLY) =====
+window.addEventListener("wheel", e=>{
+  if(window.innerWidth < 768) return;
+
+  if(isAnimating) return;
+
+  if(e.deltaY > 0){
+    rotateTo((currentIndex + 1) % items.length);
+  } else {
+    rotateTo((currentIndex - 1 + items.length) % items.length);
+  }
+});
+
+</script>
+
 </body>
 </html>
