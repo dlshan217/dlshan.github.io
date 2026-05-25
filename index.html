@@ -10,6 +10,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
 <STYLE>
 
+
+/* ════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════ */
 :root {
   /* Brand accents — indigo primary, complementary accents */
   --pink:   #4F46E5;   /* primary indigo  */
@@ -925,6 +929,9 @@ section { position: relative; z-index: 1; }
   line-height: 1.65;
 }
 
+
+
+
 /* ════════════════════════════════
    CONTACT
 ════════════════════════════════ */
@@ -1365,6 +1372,265 @@ footer {
   box-shadow:
     0 35px 70px rgba(0,0,0,0.6);
 }
+
+
+/* SECTION */
+.scattered-cards{
+  position:relative;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:38px;
+
+  margin-top:90px;
+  flex-wrap:wrap;
+
+  min-height:420px;
+}
+
+/* BASE CARD */
+.media-card{
+  position:relative;
+
+  overflow:visible;
+
+  border:1px solid rgba(255,255,255,0.07);
+
+  background:#0d0d0d;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.45);
+
+  animation:cardDrop .9s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* REMOVE POP HOVER */
+.media-card:hover{
+  z-index:10;
+}
+
+/* RANDOM THROW LOOK */
+.spotify-embed-card{
+  width:340px;
+  border-radius:15px;
+
+  transform:rotate(-7deg);
+
+  animation-delay:.15s;
+}
+
+.youtube-card{
+  width:250px;
+  height:250px;
+  
+
+  transform:rotate(5deg);
+
+  animation-delay:.35s;
+}
+
+
+.behance-card{
+  width:340px;
+  border-radius:15px;
+  
+
+  transform:rotate(-4deg);
+
+  animation-delay:.55s;
+}
+
+/* FILLED IMAGE */
+.youtube-card img{
+  width:100%;
+  height:100%;
+  
+
+  object-fit:cover;
+  display:block;
+}
+
+/* TITLE TOP RIGHT */
+.youtube-hover-title{
+  position:absolute;
+
+  top:18px;
+  right:18px;
+
+  font-size:1.1rem;
+  font-weight:800;
+  letter-spacing:.18em;
+
+  color:white;
+
+  opacity:0;
+
+  transform:
+    translateY(-10px);
+
+  transition:.35s ease;
+
+  z-index:3;
+}
+
+/* SUBTITLE CENTER */
+.youtube-hover-sub{
+  position:absolute;
+
+  top:50%;
+  left:50%;
+
+  transform:
+    translate(-50%, 10px);
+
+  font-size:.8rem;
+  letter-spacing:.25em;
+
+  color:rgba(255,255,255,0.78);
+
+  opacity:0;
+
+  transition:.4s ease;
+
+  z-index:3;
+
+  white-space:nowrap;
+}
+
+/* HOVER */
+.youtube-card:hover .youtube-hover-title{
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+.youtube-card:hover .youtube-hover-sub{
+  opacity:1;
+
+  transform:
+    translate(-50%, 0);
+}
+
+/* OVERLAY */
+.card-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.75),
+      rgba(0,0,0,.15)
+    );
+}
+
+/* IFRAME */
+.spotify-embed-card iframe{
+  display:block;
+
+  border:none;
+}
+
+.behance-card iframe{
+  width:100%;
+  height:100%;
+  border-radius:15px;
+
+  border:none;
+  display:block;
+}
+
+/* LOGO BOTTOM CENTER */
+.card-badge{
+  position:absolute;
+
+  left:50%;
+  bottom:-24px;
+
+  transform:translateX(-50%);
+
+  width:54px;
+  height:54px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#0f0f10;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.45);
+
+  z-index:5;
+}
+
+/* ICON */
+.card-badge i{
+  font-size:24px;
+}
+
+/* COLORS */
+.spotify-badge i{
+  color:#1DB954;
+}
+
+.youtube-badge i{
+  color:#ff0000;
+}
+
+.behance-badge i{
+  color:#0057ff;
+}
+
+/* ENTRY ANIMATION */
+@keyframes cardDrop{
+
+  0%{
+    opacity:0;
+
+    transform:
+      translateY(-180px)
+      rotate(0deg)
+      scale(.7);
+  }
+
+  70%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:1;
+  }
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  .scattered-cards{
+    gap:70px;
+  }
+
+  .spotify-embed-card{
+    width:100%;
+    max-width:320px;
+  }
+
+  .youtube-card{
+    width:220px;
+    height:280px;
+  }
+
+  .behance-card{
+    width:240px;
+    height:190px;
+  }
+}
 </STYLE>
 </head>
 <body>
@@ -1423,7 +1689,7 @@ footer {
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-tag">AHI,I'M</div>
+  <div class="hero-tag">AH, HI, I'M</div>
   <h1 class="hero-title">
     <span class="glitch-text" data-text="MOHAMMAD">MOHAMMAD</span><br>
     <span class="rainbow-text">_DILSHAN_</span>
@@ -1434,6 +1700,68 @@ footer {
     <a href="#projects" class="btn btn-primary">See My Works, its cool</a>
     <a href="#contact" class="btn btn-outline">Hire Me (Please)</a>
   </div>
+
+  <!-- SCATTERED CARDS -->
+  <div class="scattered-cards reveal">
+
+  <!-- SPOTIFY -->
+  <div class="media-card spotify-embed-card">
+
+    <iframe
+      data-testid="embed-iframe"
+      src="https://open.spotify.com/embed/playlist/1Of8IkiKOeFBaupcrb8MpD?utm_source=generator&theme=0"
+      width="100%"
+      height="152"
+      frameborder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+
+    
+
+  </div>
+   
+  <!-- YOUTUBE -->
+
+  <a href="https://www.youtube.com/@dlshan"
+   target="_blank"
+   class="media-card youtube-card">
+
+  
+    <img src="https://yt3.googleusercontent.com/HjpvKhvksewvHUgv0bLSQY7eLj4LjuVfChyh4Xeh8Mnw8UqGpZWidFstSOiraVry5wnKVjdDrA=s160-c-k-c0x00ffffff-no-rj" alt="">
+
+
+  <div class="card-overlay"></div>
+
+  <!-- HOVER TEXT -->
+  <div class="youtube-hover-title">
+    DLSHAN
+  </div>
+
+  <div class="youtube-hover-sub">
+    CHECK THIS OUT
+  </div>
+
+  <!-- LOGO -->
+  <div class="card-badge youtube-badge">
+    <i class="fa-brands fa-youtube"></i>
+  </div>
+
+</a>
+
+
+  <!-- BEHANCE -->
+  <div class="media-card behance-card">
+
+    <iframe src="https://www.behance.net/embed/project/236148305?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+
+    
+
+  </div>
+
+</div>
+
   <div class="scroll-hint">
     <span>SCROLL DOWN</span>
     <div class="scroll-arrow"></div>
@@ -1482,8 +1810,10 @@ footer {
   <div class="window-body">
     <img src="dlshan.jpg" alt="Mohammad Dilshan">
   </div>
+  
 
 </div>
+
   <div class="about-text reveal">
     <span class="section-label">// 001 · ABOUT ME</span>
     <h2 class="section-title">WHO IS<br><span class="rainbow-text">THIS GUY?</span></h2>
@@ -1824,7 +2154,7 @@ footer {
     <div class="strength-card reveal" data-icon="public">
       <span class="material-symbols-rounded strength-icon">public</span>
       <div class="strength-title">INTERNET CULTURE FLUENCY</div>
-      <div class="strength-desc">
+      <div class="strength-desc"> 
         Strong understanding of digital trends and internet culture. Yes, this is a real skill in 2025.
       </div>
     </div>
