@@ -10,10 +10,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
 <STYLE>
 
-
-/* ════════════════════════════════
-   DESIGN TOKENS
-════════════════════════════════ */
 :root {
   /* Brand accents — indigo primary, complementary accents */
   --pink:   #4F46E5;   /* primary indigo  */
@@ -745,7 +741,7 @@ section { position: relative; z-index: 1; }
 .project-num {
   font-family: 'Bangers', cursive;
   font-size: 90px;
-  color: rgba(15, 23, 42, 0.04);
+  color: rgba(90, 43, 210, 0.088);
   position: absolute;
   top: -12px;
   right: 16px;
@@ -1261,6 +1257,114 @@ footer {
   }
   .mobile-nav-item .material-symbols-rounded { font-size: 24px; }
 }
+
+
+
+.about-window{
+  width:380px;
+  border-radius:20px;
+  overflow:hidden;
+  background:#111;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.03);
+    
+  backdrop-filter:blur(20px);
+}
+
+/* TOP BAR */
+.window-topbar{
+  height:46px;
+  display:flex;
+  align-items:center;
+  padding:0 16px;
+  background:rgba(255,255,255,0.04);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  position:relative;
+}
+
+/* MAC DOTS */
+.dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  margin-right:8px;
+}
+
+.red{
+  background:#ff5f57;
+}
+
+.yellow{
+  background:#febc2e;
+}
+
+.green{
+  background:#28c840;
+}
+
+/* FILE NAME */
+.window-title{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:.82rem;
+  color:rgba(255,255,255,0.65);
+  letter-spacing:.04em;
+}
+
+/* IMAGE */
+.window-body img{
+  width:100%;
+  display:block;
+  object-fit:cover;
+}
+
+
+
+
+
+
+.spotify-desk{
+  position:absolute;
+
+  /* POSITION */
+  top:120px;
+  right:12%;
+
+  /* SIZE */
+  width:280px;
+
+  /* DESK FEEL */
+  transform:rotate(-7deg);
+
+  overflow:hidden;
+  border-radius:22px;
+
+  background:#111;
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.45);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.spotify-desk img{
+  width:100%;
+  display:block;
+  object-fit:cover;
+}
+
+/* HOVER */
+.spotify-desk:hover{
+  transform:rotate(-2deg) scale(1.04);
+  box-shadow:
+    0 35px 70px rgba(0,0,0,0.6);
+}
 </STYLE>
 </head>
 <body>
@@ -1365,27 +1469,31 @@ footer {
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="about-image-wrap reveal">
-    <div class="floating-tag ft1"> BCA 2025</div>
-    <div class="floating-tag ft2"> Open to Work</div>
-    <div class="about-image-frame">
-      <img src="dlshan.jpg" alt="Mohammad Dilshan" />
-    </div>
-    <div class="status-badge">
-      <div class="status-dot"></div>
-      ONLINE · ME
-    </div>
+<div class="about-window reveal">
+
+  <div class="window-topbar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+
+    <div class="window-title">dlshan.jpg</div>
   </div>
+
+  <div class="window-body">
+    <img src="dlshan.jpg" alt="Mohammad Dilshan">
+  </div>
+
+</div>
   <div class="about-text reveal">
     <span class="section-label">// 001 · ABOUT ME</span>
     <h2 class="section-title">WHO IS<br><span class="rainbow-text">THIS GUY?</span></h2>
-    <p style="font-size:15px; color:rgba(240,240,255,0.6); line-height:1.8;">
+    <p style="font-size:15px; color:#00000067; line-height:1.8;">
       Fresh grad from University of Calicut, armed with a BCA degree and dangerous amounts of caffeine. I build things with Django, React, and a questionable sleep schedule.
     </p>
     <div class="meme-quote">
       "Stack Overflow is just peer-reviewed code at this point and I have zero shame about it."
     </div>
-    <p style="font-size:14px; color:rgba(240,240,255,0.5); line-height:1.8;">
+    <p style="font-size:15px; color:#00000067; line-height:1.8;">
       Currently leveling up from fresher to someone who can confidently say "I've shipped that" — with real CRUD, real APIs, and real mobile app vibes. Based in Malappuram, building for the internet.
     </p>
     <div class="about-facts">
@@ -1745,9 +1853,19 @@ footer {
       </div>
     </div>
 
+    <div class="strength-card reveal" data-icon="coffee">
+      <span class="material-symbols-rounded strength-icon">coffee</span>
+      <div class="strength-title">OPERATES ON MINIMAL SLEEP</div>
+      <div class="strength-desc">
+        The bugs don't stop at midnight and neither do I. (Please still pay me industry rates.)
+      </div>
+    </div>
+
+
   </div>
 
 </section>
+
 
 <!-- CONTACT -->
 <section id="contact">
@@ -1769,7 +1887,7 @@ footer {
 
       <p style="
         font-size:15px;
-        color:rgba(240,240,255,0.55);
+        color:rgba(0, 0, 0, 0.55);
         line-height:1.8;
         margin-bottom:28px;
       ">
